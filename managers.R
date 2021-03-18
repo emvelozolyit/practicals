@@ -64,3 +64,39 @@ managers_data
 
 # Look at the structure of the data frame
 str(managers_data)
+
+
+
+# Create a new column called 'summary_col' that
+# contains a summary of each row
+summary_col <- managers_data$Q1 + 
+  managers_data$Q2 + 
+  managers_data$Q3 + 
+  managers_data$Q4 + 
+  managers_data$Q5
+
+summary_col
+
+# Add summary_col to the end of the data frame
+# take content of data frame, create a new data frame
+# and add summary_col vector to the data frame 
+
+managers_data <- data.frame(managers_data, summary_col)
+managers_data
+
+# Calculate mean value for each row
+mean_value <-rowMeans(managers_data[5:9])
+mean_value
+
+# Add the mean_value vector to the data frame
+
+managers_data <- data.frame(managers_data, mean_value)
+managers_data
+
+# Change variable titles to make them more readable 
+names(managers_data)[11] <- "Summary"
+names(managers_data)[12] <- "Mean Value"
+
+# Show the structure of the data frame
+str(managers_data)
+managers_data
